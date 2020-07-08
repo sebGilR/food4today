@@ -78,7 +78,7 @@ const Catalogue = (props) => {
         categories={categories}
         handleFilter={handleFilter}
       />
-      <List />
+      <List recipes={props.data.recipes} />
       <Footer />
     </>
   )

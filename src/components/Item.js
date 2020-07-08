@@ -1,16 +1,12 @@
 import React from 'react';
-import ingredient from '../assets/img/ingredients.png';
+// import ingredient from '../assets/img/ingredients.png';
 
-const Item = () => {
+const Item = ({ recipe }) => {
+  const { strMeal, strMealThumb } = recipe
   return (
     <div>
-      <h4>Dish Name</h4>
-      <img src="https://www.themealdb.com/images/media/meals/1548772327.jpg/preview" alt="preview" />
-      <p>
-        <span>5</span>
-        <img src={ingredient} alt="Ingredients" />
-        ingredients
-      </p>
+      <h4>{strMeal}</h4>
+      <img src={`${strMealThumb}/preview`} alt={strMeal} />
     </div>
   )
 };

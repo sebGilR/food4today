@@ -1,12 +1,16 @@
 import React from 'react';
 import Item from '../components/Item';
 
-const List = () => {
+const List = ({ recipes }) => {
 
   return (
     <div>
       <h2>Category Name</h2>
-      <Item />
+      {recipes &&
+        recipes.map(recipe =>
+          <Item key={recipe.idMeal} recipe={recipe} />
+        )
+      }
     </div>
 
   )
