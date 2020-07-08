@@ -4,9 +4,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './components/App';
-import recipesReducer from './store/recipesReducer';
+import rootReducer from './store/reducers';
 
-const store = createStore(recipesReducer, [])
+const store = createStore(rootReducer, { data: { recipes: [], isLoading: false, isError: false } },
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
   <Provider store={store}>
