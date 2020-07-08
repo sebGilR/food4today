@@ -1,4 +1,4 @@
-const recipesReducer = (state = [], action) => {
+const recipesReducer = (state = {}, action) => {
   switch (action.type) {
     case 'STORIES_FETCH_INIT':
       return {
@@ -11,7 +11,7 @@ const recipesReducer = (state = [], action) => {
         ...state,
         isLoading: false,
         isError: false,
-        data: action.payload,
+        recipes: action.payload,
       };
     case 'STORIES_FETCH_FAILURE':
       return {
