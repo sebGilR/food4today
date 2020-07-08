@@ -13,6 +13,8 @@ const urlReducer = (state = '', action) => {
       return `${BASE}${LOOKUP_CAT}${action.payload}`;
     case 'RECIPE':
       return `${BASE}${LOOKUP_ID}${action.payload}`;
+    default:
+      return state;
   }
 };
 
