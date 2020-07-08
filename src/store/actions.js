@@ -3,8 +3,9 @@ export const filterRecipes = category => ({
   payload: category,
 });
 
-export const getCategories = () => ({
+export const getCategories = categories => ({
   type: 'CATEGORIES',
+  payload: categories,
 });
 
 export const getCategory = category => ({
