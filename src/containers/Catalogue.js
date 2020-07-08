@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 import * as Actions from '../store/actions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -15,6 +16,19 @@ const Catalogue = (props) => {
   const handleFilterSelect = e => {
     props.getCategory(e.target.innerText);
   };
+
+  const handleFetchRecipes = useCallback(() => {
+    props.fetchInit();
+
+    Axios.get(props.url)
+      .then(result => {
+        props.fetchSuccess(result);
+      })
+      .catch(() => {
+        props.fetchFailure();
+      })
+
+  }, [props.url]);
 
   return (
     <>
