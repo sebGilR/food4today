@@ -1,8 +1,10 @@
 import React from 'react';
+import Cataloge from '../containers/Catalogue';
+import Catalogue from '../containers/Catalogue';
 
 function App() {
   return (
-    <h1>HI</h1>
+    <Catalogue />
   );
 }
 
