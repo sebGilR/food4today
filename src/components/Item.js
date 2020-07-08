@@ -5,7 +5,7 @@ const Item = () => {
   return (
     <div>
       <h4>Dish Name</h4>
-      <img src="https://media-cdn.tripadvisor.com/media/photo-s/17/ba/a6/31/burger.jpg" alt="preview" />
+      <img src="https://www.themealdb.com/images/media/meals/1548772327.jpg/preview" alt="preview" />
       <p>
         <span>5</span>
         <img src={ingredient} alt="Ingredients" />
