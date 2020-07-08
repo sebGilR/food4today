@@ -4,7 +4,11 @@ import Item from './Item';
 const List = () => {
 
   return (
-    <Item />
+    <div>
+      <h2>Category Name</h2>
+      <Item />
+    </div>
+
   )
 };
 
