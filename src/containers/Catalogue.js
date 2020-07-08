@@ -6,48 +6,76 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Filter from '../components/Filter';
 import List from './List';
+import {
+  BASE,
+  LOOKUP_CATS,
+} from '../services/mealsdb';
 
 const Catalogue = (props) => {
-
+  const {
+    url,
+    categories,
+    fetchInit,
+    fetchSuccess,
+    fetchFailure,
+    filter,
+    getCategory,
+    getCategories
+  } = props
   const handleFilter = e => {
     props.filterRecipes(e.target.innerText);
   };
 
-  const handleFilterSelect = () => {
-    props.getCategory(props.filter);
-  };
+  const fetchCategories = useCallback(() => {
+    Axios.get(`${BASE}${LOOKUP_CATS}`)
+      .then(result => {
+        console.log(result.data.categories)
+        getCategories(result.data.categories);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+  }, [getCategories])
+
+  const handleFilterSelect = useCallback(() => {
+    getCategory(filter);
+  }, [filter, getCategory])
 
   const handleFetchRecipes = useCallback(() => {
-    if (!props.url) {
+    if (!url) {
       return;
     };
 
-    console.log('Yo'); // Test
+    fetchInit();
 
-    props.fetchInit();
-
-    Axios.get(props.url)
+    Axios.get(url)
       .then(result => {
-        props.fetchSuccess(result.data);
+        fetchSuccess(result.data);
       })
       .catch(() => {
-        props.fetchFailure();
+        fetchFailure();
       })
 
-  }, [props.url]);
+  }, [url, fetchInit, fetchSuccess, fetchFailure]);
 
   React.useEffect(() => {
     handleFilterSelect()
-  }, [props.filter]);
+  }, [handleFilterSelect]);
 
   React.useEffect(() => {
     handleFetchRecipes();
   }, [handleFetchRecipes]);
 
+  React.useEffect(() => {
+    fetchCategories();
+  }, [fetchCategories])
+
   return (
     <>
       <Header />
       <Filter
+        categories={categories}
         handleFilter={handleFilter}
       />
       <List />
@@ -58,6 +86,7 @@ const Catalogue = (props) => {
 
 const mapStateToProps = state => ({
   data: state.data,
+  categories: state.categories,
   filter: state.filter,
   url: state.url,
 });
@@ -77,6 +106,9 @@ const mapDispatchToProps = dispatch => ({
   },
   getCategory: category => {
     dispatch(Actions.getCategory(category));
+  },
+  getCategories: categories => {
+    dispatch(Actions.getCategories(categories));
   },
 });
 
