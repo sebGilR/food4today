@@ -1,6 +1,6 @@
 const filterRecipes = category => ({
   type: 'FILTER',
-  category,
+  payload: category,
 });
 
 export const fetchInit = () => ({
