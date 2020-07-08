@@ -6,7 +6,7 @@ const recipesReducer = (state = {}, action) => {
         isLoading: true,
         isError: false,
       };
-    case 'STORIES_FETCH_SUCCES':
+    case 'STORIES_FETCH_SUCCESS':
       return {
         ...state,
         isLoading: false,

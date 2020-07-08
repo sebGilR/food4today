@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = ({ handleFilter }) => {
 
   return (
     <aside>
       <h3>Categories</h3>
       <ul>
-        <li>Category</li>
+        <li onClick={handleFilter}>Seafood</li>
       </ul>
     </aside>
   )

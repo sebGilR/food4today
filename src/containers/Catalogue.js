@@ -13,16 +13,22 @@ const Catalogue = (props) => {
     props.filterRecipes(e.target.innerText);
   };
 
-  const handleFilterSelect = e => {
-    props.getCategory(e.target.innerText);
+  const handleFilterSelect = () => {
+    props.getCategory(props.filter);
   };
 
   const handleFetchRecipes = useCallback(() => {
+    if (!props.url) {
+      return;
+    };
+
+    console.log('Yo'); // Test
+
     props.fetchInit();
 
     Axios.get(props.url)
       .then(result => {
-        props.fetchSuccess(result);
+        props.fetchSuccess(result.data);
       })
       .catch(() => {
         props.fetchFailure();
@@ -30,10 +36,20 @@ const Catalogue = (props) => {
 
   }, [props.url]);
 
+  React.useEffect(() => {
+    handleFilterSelect()
+  }, [props.filter]);
+
+  React.useEffect(() => {
+    handleFetchRecipes();
+  }, [handleFetchRecipes]);
+
   return (
     <>
       <Header />
-      <Filter />
+      <Filter
+        handleFilter={handleFilter}
+      />
       <List />
       <Footer />
     </>
