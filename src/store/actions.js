@@ -1,4 +1,4 @@
-const filterRecipes = category => ({
+export const filterRecipes = category => ({
   type: 'FILTER',
   payload: category,
 });
