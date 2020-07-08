@@ -3,6 +3,20 @@ const filterRecipes = category => ({
   payload: category,
 });
 
+export const getCategories = () => ({
+  type: 'CATEGORIES',
+});
+
+export const getCategory = category => ({
+  type: 'CATEGORY',
+  payload: category,
+});
+
+export const getRecipe = id => ({
+  type: 'RECIPE',
+  payload: id,
+});
+
 export const fetchInit = () => ({
   type: 'STORIES_FETCH_INIT',
 });
@@ -14,6 +28,6 @@ export const fetchSuccess = data => ({
 
 export const fetchFailure = () => ({
   type: 'STORIES_FETCH_FAILURE',
-})
+});
 
 export default filterRecipes;
