@@ -8,7 +8,7 @@ import rootReducer from './store/reducers';
 
 const store = createStore(rootReducer,
   {
-    data: { recipes: [], isLoading: false, isError: false },
+    data: { recipes: [], isLoading: true, isError: false },
     categories: [],
     url: '',
     filter: '',
