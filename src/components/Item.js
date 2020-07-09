@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import style from '../assets/styles/Item.module.scss';
 
 const Item = ({ recipe, history, handleClick }) => {
@@ -21,6 +22,12 @@ const Item = ({ recipe, history, handleClick }) => {
       </div>
     </article>
   );
+};
+
+Item.propTypes = {
+  recipe: PropTypes.objectOf(PropTypes.array).isRequired,
+  history: PropTypes.objectOf(PropTypes.array).isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default withRouter(Item);
