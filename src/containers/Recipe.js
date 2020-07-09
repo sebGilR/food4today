@@ -55,6 +55,13 @@ const Recipe = props => {
     ingredients[i] = `${ingredients[i]}: ${measures[i]}`;
   };
 
+  let vidId;
+
+  if (!isLoading) {
+    vidId = recipe.strYoutube.split('=');
+    vidId = vidId[1];
+  }
+
   return (
     <>
       {isError && <p>Something went wrong...</p>}
@@ -62,6 +69,13 @@ const Recipe = props => {
         isLoading ? 'Loading data...' :
           <>
             <img src={recipe.strMealThumb} alt={recipe.strMeal} className="picture" />
+            <ul className="ingredients">
+              {
+                ingredients.map(item =>
+                  <li key={item}>{item}</li>
+                )
+              }
+            </ul>
             <h2>{recipe.strMeal}</h2>
             <ul className="info">
               <li key={recipe.strCategory}>
@@ -71,13 +85,14 @@ const Recipe = props => {
                 Origin: {recipe.strArea}
               </li>
             </ul>
-            <ul className="ingredients">
-              {
-                ingredients.map(item =>
-                  <li key={item}>{item}</li>
-                )
-              }
-            </ul>
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${vidId}`}
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
           </>
       }
     </>
