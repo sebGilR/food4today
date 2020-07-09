@@ -1,20 +1,25 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import logo from '../assets/img/pagelogo.png';
-import { Link } from 'react-router-dom';
+import style from '../assets/styles/Header.module.scss';
 
-const Header = () => (
-  <header>
-    <img id="logo" src={logo} alt="Food 4 you." />
-    <nav>
-      <ul>
-        <Link to="/">
-          <li>Home</li>
-        </Link>
+const Header = ({ history }) => {
+  const id = history.location.pathname
+  console.log(id)
+  return (
+    <header className={
+      id === '/' ? style.container : `${style.container} ${style.containerNarrow} `
+    }>
+      <img className={style.logo} src={logo} alt="Food 4 you." />
+      <nav>
+        <ul className={style.list}>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+        </ul>
+      </nav>
+    </header>
+  )
+};
 
-        <li>Random Recipe</li>
-      </ul>
-    </nav>
-  </header>
-);
-
-export default Header;
+export default withRouter(Header);
