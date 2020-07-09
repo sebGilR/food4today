@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import * as Actions from '../store/actions';
@@ -9,8 +9,7 @@ import {
 } from '../services/mealsdb';
 
 const Recipe = props => {
-  // const { id } = useParams();
-  const id = '52772';
+  const { id } = useParams();
   const {
     recipe,
     isLoading,
