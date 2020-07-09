@@ -31,8 +31,7 @@ const Recipe = props => {
         fetchFailure();
         console.log(err);
       });
-
-  }, [fetchSuccess, fetchInit, fetchFailure, id])
+  }, [fetchSuccess, fetchInit, fetchFailure, id]);
 
   React.useEffect(() => {
     fetchRecipe();
@@ -44,12 +43,12 @@ const Recipe = props => {
   !isLoading && Object.entries(recipe)
     .forEach(([key, value]) => {
       if (key.includes('strIngredient') && value) {
-        let item = value.split('');
+        const item = value.split('');
         item[0] = item[0].toUpperCase();
         ingredients.push(item.join(''));
       } else if (key.includes('strMeasure') && value) {
         measures.push(value);
-      };
+      }
     });
 
   const getVidId = url => {
@@ -60,66 +59,68 @@ const Recipe = props => {
     }
 
     return vidId;
-  }
+  };
 
   return (
     <section className={style.container}>
       {isError && <p className={style.msg}>Something went wrong...</p>}
       {
-        isLoading ? <p className={style.msg}>Loading recipe...</p> :
-          <>
-            <h2 className={style.title}>
-              {recipe.strMeal}
-            </h2>
-            <div className={style.info}>
-              <img src={recipe.strMealThumb} alt={recipe.strMeal} className={style.picture} />
-              <ul className={style.infoData}>
-                <li key={recipe.strCategory}>
-                  <strong>Category: </strong>
-                  {recipe.strCategory}
-                </li>
-                <li key={recipe.strArea}>
-                  <strong>Origin: </strong>
-                  {recipe.strArea}
-                </li>
-              </ul>
-            </div>
-            <div className={style.details}>
-              <table>
-                <thead>
-                  <tr className={style.theader}>
-                    <th>Ingredients</th>
-                    <th>Measure</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    ingredients.map((item, i) =>
+        isLoading ? <p className={style.msg}>Loading recipe...</p>
+          : (
+            <>
+              <h2 className={style.title}>
+                {recipe.strMeal}
+              </h2>
+              <div className={style.info}>
+                <img src={recipe.strMealThumb} alt={recipe.strMeal} className={style.picture} />
+                <ul className={style.infoData}>
+                  <li key={recipe.strCategory}>
+                    <strong>Category: </strong>
+                    {recipe.strCategory}
+                  </li>
+                  <li key={recipe.strArea}>
+                    <strong>Origin: </strong>
+                    {recipe.strArea}
+                  </li>
+                </ul>
+              </div>
+              <div className={style.details}>
+                <table>
+                  <thead>
+                    <tr className={style.theader}>
+                      <th>Ingredients</th>
+                      <th>Measure</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                    ingredients.map((item, i) => (
                       <tr key={`${item}${i}`}>
                         <td>{item}</td>
                         <td>{measures[i]}</td>
                       </tr>
-                    )
+                    ))
                   }
-                </tbody>
-              </table>
-              <div className={style.videoPlayer}>
-                <iframe
-                  src={`https://www.youtube.com/embed/${getVidId(recipe.strYoutube)}`}
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={recipe.strMeal}>
-                </iframe>
+                  </tbody>
+                </table>
+                <div className={style.videoPlayer}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${getVidId(recipe.strYoutube)}`}
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={recipe.strMeal}
+                  />
+                </div>
               </div>
-            </div>
-            <h3 className={`${style.title} ${style.left}`}>Instructions</h3>
-            <p className={style.instructions}>
-              {recipe.strInstructions}
-            </p>
-          </>
+              <h3 className={`${style.title} ${style.left}`}>Instructions</h3>
+              <p className={style.instructions}>
+                {recipe.strInstructions}
+              </p>
+            </>
+          )
       }
     </section>
-  )
+  );
 };
 
 const mapStateToProps = state => ({
