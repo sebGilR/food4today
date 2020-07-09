@@ -60,9 +60,9 @@ const Recipe = props => {
 
   return (
     <section className={style.container}>
-      {isError && <p>Something went wrong...</p>}
+      {isError && <p className={style.msg}>Something went wrong...</p>}
       {
-        isLoading ? <p>Loading recipe...</p> :
+        isLoading ? <p className={style.msg}>Loading recipe...</p> :
           <>
             <h2 className={style.title}>{recipe.strMeal}</h2>
             <div className={style.info}>

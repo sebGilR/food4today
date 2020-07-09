@@ -6,6 +6,10 @@
   letter-spacing: 1.1px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-bottom: 55px;
   color: rgb(82, 62, 62);
