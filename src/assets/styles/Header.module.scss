@@ -5,12 +5,14 @@
   background-size: cover; 
   display: flex;
   align-items: flex-start;
-  padding: 20px 15%;
+  padding: 10px 15%;
   border-bottom: 4px solid brown;
 }
 
 .containerNarrow {
   height: auto;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .logo {
