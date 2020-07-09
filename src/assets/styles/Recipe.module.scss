@@ -1,7 +1,6 @@
 @mixin desktop {
   @media (min-width: 700px) {
-    @content
-  }
+    @content; }
 }
 
 .container {
@@ -63,21 +62,21 @@
   color: brown;
 }
 
-.videoPlayer{
-  overflow:hidden;
-  padding-bottom:30.25%;
-  position:relative;
-  height:0;
+.videoPlayer {
+  overflow: hidden;
+  padding-bottom: 30.25%;
+  position: relative;
+  height: 0;
   width: 54%;
   border: 2px solid brown;
   border-radius: 5px;
 
-  iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
   }
 }
 
