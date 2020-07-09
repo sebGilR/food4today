@@ -12,7 +12,7 @@ const Item = ({ recipe, history, handleClick }) => {
   return (
     <div className={style.item} onClick={() => clickEffect(idMeal)}>
       <h4 className={style.name}>{strMeal}</h4>
-      <img className={style.thumb} src={`${strMealThumb}/preview`} alt={strMeal} />
+      <img className={style.thumb} src={strMealThumb} alt={strMeal} />
     </div>
   )
 };
