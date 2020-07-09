@@ -39,19 +39,25 @@ const Recipe = props => {
   }, [fetchRecipe]);
 
   const ingredients = [];
+  const measures = [];
 
   !isLoading && Object.entries(recipe).forEach(([key, value]) => {
-    let item = ''
     if (key.includes('strIngredient') && value) {
-      item = value.split('');
+      let item = value.split('');
       item[0] = item[0].toUpperCase();
-      ingredients.push(item.join(''))
-    }
+      ingredients.push(item.join(''));
+    } else if (key.includes('strMeasure') && value) {
+      measures.push(value);
+    };
   });
+
+  for (let i = 0; i < ingredients.length; i += 1) {
+    ingredients[i] = `${ingredients[i]}: ${measures[i]}`;
+  };
 
   return (
     <>
-      {isError && <p>Something went wrong ...</p>}
+      {isError && <p>Something went wrong...</p>}
       {
         isLoading ? 'Loading data...' :
           <>
