@@ -2,8 +2,6 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import * as Actions from '../store/actions';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Filter from '../components/Filter';
 import List from '../components/List';
 import {
@@ -73,13 +71,11 @@ const Catalogue = (props) => {
 
   return (
     <>
-      <Header />
       <Filter
         categories={categories}
         handleFilter={handleFilter}
       />
       <List recipes={props.data.recipes} />
-      <Footer />
     </>
   )
 };
