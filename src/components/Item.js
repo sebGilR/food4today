@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-// import ingredient from '../assets/img/ingredients.png';
 
 const Item = ({ recipe, history, handleClick }) => {
   const { idMeal, strMeal, strMealThumb } = recipe;

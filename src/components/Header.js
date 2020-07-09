@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/img/pagelogo.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -7,7 +8,10 @@ const Header = () => {
       <img id="logo" src={logo} alt="Food 4 you." />
       <nav>
         <ul>
-          <li>Home</li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+
           <li>Random Recipe</li>
         </ul>
       </nav>
