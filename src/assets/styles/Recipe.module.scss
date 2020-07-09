@@ -1,6 +1,7 @@
 @mixin desktop {
   @media (min-width: 700px) {
-    @content; }
+    @content;
+  }
 }
 
 .container {

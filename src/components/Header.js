@@ -9,7 +9,8 @@ const Header = ({ history }) => {
   return (
     <header className={
       id === '/' ? style.container : `${style.container} ${style.containerNarrow} `
-    }>
+    }
+    >
       <img className={style.logo} src={logo} alt="Food 4 you." />
       <nav>
         <ul className={style.list}>
@@ -19,7 +20,7 @@ const Header = ({ history }) => {
         </ul>
       </nav>
     </header>
-  )
+  );
 };
 
 export default withRouter(Header);
