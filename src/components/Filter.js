@@ -1,18 +1,20 @@
 import React from 'react';
+import style from '../assets/styles/Filter.module.scss';
 
 const Filter = ({ handleFilter, categories }) => (
-  <aside>
-    <h3>Categories</h3>
-    <ul>
+  <section className={style.container}>
+    <h3 className={style.title}>Categories</h3>
+    <ul className={style.list}>
       {
-        categories.map(category => {
-          return <li key={category.idCategory} onClick={handleFilter}>
-            {category.strCategory}
+        categories.map(category =>
+          <li key={category.idCategory} onClick={handleFilter}>
+            <img className={style.thumb} src={category.strCategoryThumb} alt={category.strCategory} />
+            <span>{category.strCategory}</span>
           </li>
-        })
+        )
       }
     </ul>
-  </aside>
+  </section>
 );
 
 export default Filter;
