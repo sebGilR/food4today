@@ -74,7 +74,11 @@ const Catalogue = (props) => {
     <>
       {props.data.isError && <p>Something went wrong...</p>}
       {
-        props.data.isLoading ? 'Loading categories...' :
+        !props.filter && <p>Please select a category</p>
+      }
+      {
+        props.data.isLoading ?
+          <p>Loading recipes...</p> :
           <Filter
             categories={categories}
             handleFilter={handleFilter}
@@ -82,7 +86,7 @@ const Catalogue = (props) => {
       }
       {
         !props.data.isLoading &&
-        <List recipes={props.data.recipes} handleClick={handleClick} />
+        <List recipes={props.data.recipes} handleClick={handleClick} category={filter} />
       }
 
     </>

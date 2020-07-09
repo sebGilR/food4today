@@ -1,0 +1,29 @@
+.item {
+  width: calc(25% - 9px);
+  padding: 10px;
+  box-shadow: 0 0 7px rgba(128, 128, 128, 0.377);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  &:not(:nth-child(4n)) {
+    margin-right: 11.7px;
+  }
+}
+
+.name {
+  padding: 5px 0;
+}
+
+.thumb {
+  height: 150px;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid brown;
+}
