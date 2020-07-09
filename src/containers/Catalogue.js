@@ -73,13 +73,13 @@ const Catalogue = (props) => {
 
   return (
     <div className={style.container}>
-      {props.data.isError && <p>Something went wrong...</p>}
+      {props.data.isError && <p className={style.msg}>Something went wrong...</p>}
       {
-        !props.filter && <p>Please select a category</p>
+        !props.filter && <p className={style.msg}>Please select a category</p>
       }
       {
         props.data.isLoading ?
-          <p>Loading recipes...</p> :
+          <p className={style.msg}>Loading recipes...</p> :
           <Filter
             categories={categories}
             handleFilter={handleFilter}

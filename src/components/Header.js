@@ -4,8 +4,8 @@ import logo from '../assets/img/pagelogo.png';
 import style from '../assets/styles/Header.module.scss';
 
 const Header = ({ history }) => {
-  const id = history.location.pathname
-  console.log(id)
+  const id = history.location.pathname;
+
   return (
     <header className={
       id === '/' ? style.container : `${style.container} ${style.containerNarrow} `
