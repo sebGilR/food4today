@@ -57,6 +57,8 @@ const Catalogue = (props) => {
 
   }, [url, fetchInit, fetchSuccess, fetchFailure]);
 
+  const handleClick = () => fetchInit();
+
   React.useEffect(() => {
     handleFilterSelect()
   }, [handleFilterSelect]);
@@ -75,7 +77,7 @@ const Catalogue = (props) => {
         categories={categories}
         handleFilter={handleFilter}
       />
-      <List recipes={props.data.recipes} />
+      <List recipes={props.data.recipes} handleClick={handleClick} />
     </>
   )
 };
