@@ -7,9 +7,9 @@ const Filter = ({ handleFilter, categories }) => (
     <ul className={style.list}>
       {
         categories.map(category =>
-          <li key={category.idCategory} onClick={handleFilter}>
+          <li key={category.idCategory} >
             <img className={style.thumb} src={category.strCategoryThumb} alt={category.strCategory} />
-            <span>{category.strCategory}</span>
+            <span onClick={handleFilter}>{category.strCategory}</span>
           </li>
         )
       }
