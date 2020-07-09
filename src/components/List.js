@@ -3,7 +3,7 @@ import Item from './Item';
 import style from '../assets/styles/List.module.scss';
 
 const List = ({ recipes, handleClick, category }) => (
-  <div>
+  <div className={style.wrapper}>
     <h3>{category}</h3>
     <div className={style.container}>
       {recipes &&

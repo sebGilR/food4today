@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import style from '../assets/styles/Catalogue.module.scss';
 import * as Actions from '../store/actions';
 import Filter from '../components/Filter';
 import List from '../components/List';
@@ -71,7 +72,7 @@ const Catalogue = (props) => {
   }, [fetchCategories])
 
   return (
-    <>
+    <div className={style.container}>
       {props.data.isError && <p>Something went wrong...</p>}
       {
         !props.filter && <p>Please select a category</p>
@@ -89,7 +90,7 @@ const Catalogue = (props) => {
         <List recipes={props.data.recipes} handleClick={handleClick} category={filter} />
       }
 
-    </>
+    </div>
   )
 };
 
