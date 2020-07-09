@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import logo from '../assets/img/pagelogo.png';
 import style from '../assets/styles/Header.module.scss';
 
@@ -21,6 +22,10 @@ const Header = ({ history }) => {
       </nav>
     </header>
   );
+};
+
+Header.propTypes = {
+  history: PropTypes.objectOf(PropTypes.array).isRequired,
 };
 
 export default withRouter(Header);
