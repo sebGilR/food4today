@@ -11,12 +11,12 @@ function App() {
       <Header />
       <Route
         path="/:id"
-        render={() => <Recipe />}
+        children={<Recipe />}
       />
       <Route
         exact
         path="/"
-        render={() => <Catalogue />}
+        children={<Catalogue />}
       />
       <Footer />
     </>
