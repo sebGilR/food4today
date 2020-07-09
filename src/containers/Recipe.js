@@ -87,7 +87,7 @@ const Recipe = props => {
                 <tbody>
                   {
                     ingredients.map((item, i) =>
-                      <tr key={item}>
+                      <tr key={`${item}${i}`}>
                         <td>{item}</td>
                         <td>{measures[i]}</td>
                       </tr>
