@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import style from '../assets/styles/Recipe.module.scss';
 import * as Actions from '../store/actions';
 import {
   BASE,
@@ -50,10 +51,6 @@ const Recipe = props => {
     };
   });
 
-  for (let i = 0; i < ingredients.length; i += 1) {
-    ingredients[i] = `${ingredients[i]}: ${measures[i]}`;
-  };
-
   let vidId;
 
   if (!isLoading) {
@@ -62,39 +59,60 @@ const Recipe = props => {
   }
 
   return (
-    <>
+    <section className={style.container}>
       {isError && <p>Something went wrong...</p>}
       {
-        isLoading ? 'Loading data...' :
+        isLoading ? <p>Loading recipe...</p> :
           <>
-            <img src={recipe.strMealThumb} alt={recipe.strMeal} className="picture" />
-            <ul className="ingredients">
-              {
-                ingredients.map(item =>
-                  <li key={item}>{item}</li>
-                )
-              }
-            </ul>
-            <h2>{recipe.strMeal}</h2>
-            <ul className="info">
-              <li key={recipe.strCategory}>
-                Category: {recipe.strCategory}
-              </li>
-              <li key={recipe.strArea}>
-                Origin: {recipe.strArea}
-              </li>
-            </ul>
-            <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${vidId}`}
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+            <h2 className={style.title}>{recipe.strMeal}</h2>
+            <div className={style.info}>
+              <img src={recipe.strMealThumb} alt={recipe.strMeal} className={style.picture} />
+              <ul className={style.infoData}>
+                <li key={recipe.strCategory}>
+                  <strong>Category: </strong>{recipe.strCategory}
+                </li>
+                <li key={recipe.strArea}>
+                  <strong>Origin: </strong>{recipe.strArea}
+                </li>
+              </ul>
+            </div>
+            <div className={style.details}>
+              <table>
+                <thead>
+                  <tr className={style.theader}>
+                    <th>Ingredients</th>
+                    <th>Measure</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    ingredients.map((item, i) =>
+                      <tr key={item}>
+                        <td>{item}</td>
+                        <td>{measures[i]}</td>
+                      </tr>
+                    )
+                  }
+                </tbody>
+              </table>
+              <div className={style.videoPlayer}>
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${vidId}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen>
+                </iframe>
+              </div>
+            </div>
+            <h3 className={`${style.title} ${style.left}`}>Instructions</h3>
+            <p className={style.instructions}>
+              {recipe.strInstructions}
+            </p>
           </>
       }
-    </>
+    </section>
   )
 };
 
