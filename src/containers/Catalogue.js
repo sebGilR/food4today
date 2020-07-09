@@ -27,14 +27,13 @@ const Catalogue = (props) => {
   const fetchCategories = useCallback(() => {
     Axios.get(`${BASE}${LOOKUP_CATS}`)
       .then(result => {
-        console.log(result.data.categories)
         getCategories(result.data.categories);
       })
       .catch(err => {
-        console.log(err);
+        fetchFailure();
       });
 
-  }, [getCategories])
+  }, [getCategories, fetchFailure])
 
   const handleFilterSelect = useCallback(() => {
     getCategory(filter);
@@ -73,11 +72,19 @@ const Catalogue = (props) => {
 
   return (
     <>
-      <Filter
-        categories={categories}
-        handleFilter={handleFilter}
-      />
-      <List recipes={props.data.recipes} handleClick={handleClick} />
+      {props.data.isError && <p>Something went wrong...</p>}
+      {
+        props.data.isLoading ? 'Loading categories...' :
+          <Filter
+            categories={categories}
+            handleFilter={handleFilter}
+          />
+      }
+      {
+        !props.data.isLoading &&
+        <List recipes={props.data.recipes} handleClick={handleClick} />
+      }
+
     </>
   )
 };
