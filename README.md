@@ -14,7 +14,7 @@ Based on the [Catalogue of Dog Clothes](https://www.notion.so/Catalogue-of-Dog-C
 
 ## Video Presentation
 
-PENDING
+[Visit video presentation](https://youtu.be/lods18N5lms)
 
 ## Features & Usage
 
