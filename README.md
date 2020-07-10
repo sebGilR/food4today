@@ -47,6 +47,7 @@ PENDING
 - React Router
 - Redux
 - React Redux
+- MealsDB API
 - Heroku
 
 ## Author
