@@ -1,7 +1,7 @@
 import {
   fetchFailure,
   fetchInit,
-  fetchSuccess
+  fetchSuccess,
 } from '../store/actions';
 import recipesReducer from '../store/reducers/recipesReducer';
 
@@ -18,7 +18,7 @@ describe('recipesReducer', () => {
         recipes: [],
         isLoading: true,
         isError: false,
-      })
+      });
     });
   });
 
@@ -28,7 +28,7 @@ describe('recipesReducer', () => {
         recipes: ['item', 'other item'],
         isLoading: false,
         isError: false,
-      })
+      });
     });
   });
 
@@ -38,7 +38,7 @@ describe('recipesReducer', () => {
         recipes: [],
         isLoading: false,
         isError: true,
-      })
+      });
     });
   });
 
@@ -47,11 +47,11 @@ describe('recipesReducer', () => {
       recipes: [],
       isLoading: false,
       isError: false,
-    })
+    });
   });
 
   it(`returns an empty object for state if it us undefined
     and the action type is not one expected`, () => {
-    expect(recipesReducer(undefined, { type: 'OTHER' })).toEqual({})
+    expect(recipesReducer(undefined, { type: 'OTHER' })).toEqual({});
   });
 });
