@@ -22,6 +22,6 @@ const recipesReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default recipesReducer;
