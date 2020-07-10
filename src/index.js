@@ -13,9 +13,7 @@ const store = createStore(rootReducer,
     categories: [],
     url: '',
     filter: '',
-  },
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+  });
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,5 +21,5 @@ ReactDOM.render(
       <App />
     </Router>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
