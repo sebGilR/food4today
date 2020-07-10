@@ -10,4 +10,8 @@ describe('categoriesReducer', () => {
   it('returns the state if the action is not "CATEGORIES"', () => {
     expect(categoriesReducer('STATE', { type: "OTHER" })).toEqual('STATE')
   });
+
+  it('returns an empty array if state is undefined and the action is not "CATEGORIES"', () => {
+    expect(categoriesReducer(undefined, { type: "OTHER" })).toEqual([])
+  });
 })
