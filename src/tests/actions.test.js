@@ -54,15 +54,15 @@ describe('State actions', () => {
   });
 
   describe('fetchInit', () => {
-    it('returns an object with type "STORIES_FETCH_INIT"', () => {
-      expect(fetchInit().type).toEqual('STORIES_FETCH_INIT')
+    it('returns an object with type "RECIPE_FETCH_INIT"', () => {
+      expect(fetchInit().type).toEqual('RECIPE_FETCH_INIT')
     });
   });
 
   describe('fetchSuccess', () => {
     const data = { meals: [] };
-    it('returns an object with type "STORIES_FETCH_SUCCESS"', () => {
-      expect(fetchSuccess(data).type).toEqual('STORIES_FETCH_SUCCESS')
+    it('returns an object with type "RECIPE_FETCH_SUCCESS"', () => {
+      expect(fetchSuccess(data).type).toEqual('RECIPE_FETCH_SUCCESS')
     });
 
     it('returns an array extracted from a passed data object', () => {
@@ -70,13 +70,13 @@ describe('State actions', () => {
     });
 
     it('returns an object with payload and type properties', () => {
-      expect(fetchSuccess(data)).toEqual({ type: 'STORIES_FETCH_SUCCESS', payload: [] })
+      expect(fetchSuccess(data)).toEqual({ type: 'RECIPE_FETCH_SUCCESS', payload: [] })
     });
   });
 
   describe('fetchFailure', () => {
-    it('returns an object with type "STORIES_FETCH_FAILURE"', () => {
-      expect(fetchFailure().type).toEqual('STORIES_FETCH_FAILURE')
+    it('returns an object with type "RECIPE_FETCH_FAILURE"', () => {
+      expect(fetchFailure().type).toEqual('RECIPE_FETCH_FAILURE')
     });
   });
 });
