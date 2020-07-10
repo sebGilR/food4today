@@ -14,16 +14,16 @@ export const getRecipe = id => ({
 });
 
 export const fetchInit = () => ({
-  type: 'STORIES_FETCH_INIT',
+  type: 'RECIPE_FETCH_INIT',
 });
 
 export const fetchSuccess = data => ({
-  type: 'STORIES_FETCH_SUCCESS',
+  type: 'RECIPE_FETCH_SUCCESS',
   payload: data.meals,
 });
 
 export const fetchFailure = () => ({
-  type: 'STORIES_FETCH_FAILURE',
+  type: 'RECIPE_FETCH_FAILURE',
 });
 
 export default filterRecipes;
