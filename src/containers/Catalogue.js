@@ -116,11 +116,9 @@ Catalogue.propTypes = {
   getCategories: PropTypes.func.isRequired,
   getCategory: PropTypes.func.isRequired,
   filterRecipes: PropTypes.func.isRequired,
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = state => ({
-  data: state.data,
   recipes: state.data.recipes,
   categories: state.categories,
   filter: state.filter,

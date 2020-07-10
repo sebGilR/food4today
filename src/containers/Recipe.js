@@ -27,9 +27,8 @@ const Recipe = props => {
       .then(result => {
         fetchSuccess(result.data);
       })
-      .catch(err => {
+      .catch(() => {
         fetchFailure();
-        console.log(err);
       });
   }, [fetchSuccess, fetchInit, fetchFailure, id]);
 
@@ -40,22 +39,23 @@ const Recipe = props => {
   const ingredients = [];
   const measures = [];
 
-  !isLoading && Object.entries(recipe)
-    .forEach(([key, value]) => {
-      if (key.includes('strIngredient') && value) {
-        const item = value.split('');
-        item[0] = item[0].toUpperCase();
-        ingredients.push(item.join(''));
-      } else if (key.includes('strMeasure') && value) {
-        measures.push(value);
-      }
-    });
+  if (!isLoading) {
+    Object.entries(recipe)
+      .forEach(([key, value]) => {
+        if (key.includes('strIngredient') && value) {
+          const item = value.split('');
+          item[0] = item[0].toUpperCase();
+          ingredients.push(item.join(''));
+        } else if (key.includes('strMeasure') && value) {
+          measures.push(value);
+        }
+      });
+  }
 
   const getVidId = url => {
     let vidId;
     if (!isLoading) {
-      vidId = url.split('=');
-      vidId = vidId[1];
+      vidId = url.split('=').slice(1, 2);
     }
 
     return vidId;
@@ -94,13 +94,13 @@ const Recipe = props => {
                   </thead>
                   <tbody>
                     {
-                    ingredients.map((item, i) => (
-                      <tr key={`${item}${i}`}>
-                        <td>{item}</td>
-                        <td>{measures[i]}</td>
-                      </tr>
-                    ))
-                  }
+                      ingredients.map((item, i) => (
+                        <tr key={`${item}${i * 2}`}>
+                          <td>{item}</td>
+                          <td>{measures[i]}</td>
+                        </tr>
+                      ))
+                    }
                   </tbody>
                 </table>
                 <div className={style.videoPlayer}>
