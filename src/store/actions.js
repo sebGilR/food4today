@@ -8,11 +8,6 @@ export const getCategories = categories => ({
   payload: categories,
 });
 
-export const getCategory = category => ({
-  type: 'CATEGORY',
-  payload: category,
-});
-
 export const getRecipe = id => ({
   type: 'RECIPE',
   payload: id,

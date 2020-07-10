@@ -22,11 +22,11 @@ const Catalogue = props => {
     fetchSuccess,
     fetchFailure,
     filter,
-    getCategory,
+    filterRecipes,
     getCategories,
   } = props;
   const handleFilter = e => {
-    props.filterRecipes(e.target.innerText);
+    filterRecipes(e.target.innerText);
   };
 
   const fetchCategories = useCallback(() => {
@@ -38,8 +38,8 @@ const Catalogue = props => {
   }, [getCategories, fetchFailure]);
 
   const handleFilterSelect = useCallback(() => {
-    getCategory(filter);
-  }, [filter, getCategory]);
+    filterRecipes(filter);
+  }, [filter, filterRecipes]);
 
   const handleFetchRecipes = useCallback(() => {
     if (!url) {
@@ -114,7 +114,6 @@ Catalogue.propTypes = {
   fetchFailure: PropTypes.func.isRequired,
   filter: PropTypes.string,
   getCategories: PropTypes.func.isRequired,
-  getCategory: PropTypes.func.isRequired,
   filterRecipes: PropTypes.func.isRequired,
 };
 
@@ -137,9 +136,6 @@ const mapDispatchToProps = dispatch => ({
   },
   filterRecipes: category => {
     dispatch(Actions.filterRecipes(category));
-  },
-  getCategory: category => {
-    dispatch(Actions.getCategory(category));
   },
   getCategories: categories => {
     dispatch(Actions.getCategories(categories));

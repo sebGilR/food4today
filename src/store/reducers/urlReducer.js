@@ -6,7 +6,7 @@ import {
 
 const urlReducer = (state = '', action) => {
   switch (action.type) {
-    case 'CATEGORY':
+    case 'FILTER':
       return `${BASE}${LOOKUP_CAT}${action.payload}`;
     case 'RECIPE':
       return `${BASE}${LOOKUP_ID}${action.payload}`;
