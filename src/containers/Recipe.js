@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import PropTypes from 'prop-types';
 import style from '../assets/styles/Recipe.module.scss';
 import * as Actions from '../store/actions';
 import {
@@ -121,6 +122,15 @@ const Recipe = props => {
       }
     </section>
   );
+};
+
+Recipe.propTypes = {
+  recipe: PropTypes.objectOf(PropTypes.object).isRequired,
+  isError: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  fetchInit: PropTypes.func.isRequired,
+  fetchFailure: PropTypes.func.isRequired,
+  fetchSuccess: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
