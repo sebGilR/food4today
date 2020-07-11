@@ -6,7 +6,7 @@ Based on the [Catalogue of Dog Clothes](https://www.notion.so/Catalogue-of-Dog-C
 
 ## Live Demo
 
-[View Live Demo](https://foodfortoday.herokuapp.com/)
+[View Live Demo](https://master.d2w8m9klxm2gjx.amplifyapp.com/)
 
 ## Screenshots
 
