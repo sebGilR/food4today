@@ -21,10 +21,11 @@ const List = ({ recipes, handleClick, category }) => (
 
 List.defaultProps = {
   category: '',
+  recipes: [],
 };
 
 List.propTypes = {
-  recipes: PropTypes.objectOf(PropTypes.array).isRequired,
+  recipes: PropTypes.arrayOf(PropTypes.array),
   handleClick: PropTypes.func.isRequired,
   category: PropTypes.string,
 };
