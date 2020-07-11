@@ -1,0 +1,37 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background: brown url(../img/footerbg.jpg) no-repeat center center;
+  background-size: cover;
+  color: white;
+  border-top: 4px solid brown;
+  letter-spacing: 1.5px;
+
+  a {
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+
+    &:hover {
+      color: brown;
+    }
+  }
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  li {
+    padding: 0 10px;
+
+    &:not(:first-child) {
+      border-left: 1px solid white;
+    }
+  }
+}

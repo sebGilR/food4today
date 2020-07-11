@@ -1,0 +1,92 @@
+@mixin desktop {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
+.container {
+  width: calc(100% - 50px);
+  margin: 20px auto;
+
+  @include desktop {
+    width: 80%;
+  }
+}
+
+.msg {
+  text-align: center;
+  padding: 15px;
+  color: brown;
+  font-weight: bold;
+}
+
+.title {
+  text-transform: uppercase;
+  padding: 10px 0;
+  margin-left: 220px;
+  color: brown;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  margin-right: -20px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  border: 1px solid rgba(165, 42, 42, 0.445);
+}
+
+.infoData {
+  list-style: none;
+  margin-left: 40px;
+}
+
+.picture {
+  width: 200px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid rgba(165, 42, 42, 0.445);
+  margin-top: -50px;
+  margin-bottom: -7px;
+  margin-left: -20px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.theader {
+  color: brown;
+}
+
+.videoPlayer {
+  overflow: hidden;
+  padding-bottom: 30.25%;
+  position: relative;
+  height: 0;
+  width: 54%;
+  border: 2px solid brown;
+  border-radius: 5px;
+
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+.left {
+  margin-left: 0;
+}
+
+.instructions {
+  text-align: justify;
+  letter-spacing: 0.5px;
+  line-height: 1.5em;
+}

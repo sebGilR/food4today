@@ -1,0 +1,19 @@
+@mixin desktop {
+  @media (min-width: 700px) { @content; }
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+
+  @include desktop {
+    width: 80%;
+  }
+}
+
+.msg {
+  text-align: center;
+  padding: 15px;
+  color: brown;
+  font-weight: bold;
+}
