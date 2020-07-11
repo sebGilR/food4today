@@ -25,8 +25,8 @@ const Item = ({ recipe, history, handleClick }) => {
 };
 
 Item.propTypes = {
-  recipe: PropTypes.objectOf(PropTypes.array).isRequired,
-  history: PropTypes.objectOf(PropTypes.array).isRequired,
+  recipe: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  history: PropTypes.objectOf(Object).isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

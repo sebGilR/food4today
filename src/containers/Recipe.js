@@ -124,8 +124,12 @@ const Recipe = props => {
   );
 };
 
+Recipe.defaultProps = {
+  recipe: {},
+};
+
 Recipe.propTypes = {
-  recipe: PropTypes.objectOf(PropTypes.object).isRequired,
+  recipe: PropTypes.objectOf(Object),
   isError: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   fetchInit: PropTypes.func.isRequired,

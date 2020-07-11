@@ -30,7 +30,7 @@ const Filter = ({ handleFilter, categories }) => (
 
 Filter.propTypes = {
   handleFilter: PropTypes.func.isRequired,
-  categories: PropTypes.objectOf(PropTypes.array).isRequired,
+  categories: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
 };
 
 export default Filter;

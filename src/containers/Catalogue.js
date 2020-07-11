@@ -101,14 +101,16 @@ Catalogue.defaultProps = {
   url: '',
   categories: [],
   filter: '',
+  isError: false,
+  isLoading: false,
 };
 
 Catalogue.propTypes = {
-  recipes: PropTypes.objectOf(PropTypes.array),
+  recipes: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   url: PropTypes.string,
-  isError: PropTypes.bool.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  categories: PropTypes.objectOf(PropTypes.array),
+  isError: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  categories: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   fetchInit: PropTypes.func.isRequired,
   fetchSuccess: PropTypes.func.isRequired,
   fetchFailure: PropTypes.func.isRequired,
